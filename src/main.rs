@@ -17,6 +17,16 @@ struct Args {
 }
 
 fn main() {
+    let argc = std::env::args().count();
+
+    if argc == 1 {
+        let (sen, acc) = read_mouse_cfg().unwrap();
+
+        println!("Current settings: sen = {}, acc = {}", sen, acc);
+
+        return;
+    }
+
     let args = Args::parse();
 
     write_mouse_cfg(args.sen as i32, args.acc as i32).unwrap();
