@@ -1,5 +1,8 @@
 use clap::Parser;
 use helper::{read_mouse_cfg, write_mouse_cfg};
+use std::io::{self, BufRead};
+use std::thread;
+use std::time::Duration;
 
 mod helper;
 
@@ -35,15 +38,27 @@ fn main() {
 
     println!("Settings applied: sen = {}, acc = {}", sen, acc);
 
-    while args.daemon {
-        let (sen, acc) = read_mouse_cfg().unwrap();
+    let daemon = args.daemon;
 
-        if sen != args.sen as i32 || acc != args.acc as i32 {
-            write_mouse_cfg(args.sen as i32, args.acc as i32).unwrap();
+    if daemon {
+        thread::spawn(move || loop {
+            let (sen, acc) = read_mouse_cfg().unwrap();
 
-            println!("system-wide mouse settings changed, reapplying...");
+            if sen != args.sen as i32 || acc != args.acc as i32 {
+                write_mouse_cfg(args.sen as i32, args.acc as i32).unwrap();
+
+                println!("system-wide mouse settings changed, reapplying...");
+            }
+
+            thread::sleep(Duration::from_secs(15));
+        });
+
+        println!("Running as daemon, press 'q' then 'Enter' to quit");
+        let stdin = io::stdin();
+        for line in stdin.lock().lines().flatten() {
+            if line == "q" {
+                break;
+            }
         }
-
-        std::thread::sleep(std::time::Duration::from_secs(1));
     }
 }
