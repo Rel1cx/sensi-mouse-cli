@@ -1,13 +1,16 @@
 use mac_mouse_sys::*;
 
 const MAX_SEN: i32 = 1990;
+const MIN_SEN: i32 = 10;
+const MAX_ACC: i32 = 10000000;
+const MIN_ACC: i32 = 0;
 
 pub fn res_to_sen(res: i32) -> i32 {
-    res / 65536
+    2000 - res / 65536
 }
 
 pub fn sen_to_res(sen: i32) -> i32 {
-    sen * 65536
+    (2000 - sen) * 65536
 }
 
 pub fn read_mouse_cfg() -> Result<(i32, i32), String> {
@@ -18,8 +21,18 @@ pub fn read_mouse_cfg() -> Result<(i32, i32), String> {
 }
 
 pub fn write_mouse_cfg(sen: i32, acc: i32) -> Result<(), String> {
-    if !(0..=MAX_SEN).contains(&sen) {
-        return Err(format!("Invalid sensitivity value: {}", sen));
+    if !(MIN_SEN..=MAX_SEN).contains(&sen) {
+        return Err(format!(
+            "Invalid sensitivity value: {}, must be in range {}..={}",
+            sen, MIN_SEN, MAX_SEN
+        ));
+    }
+
+    if !(MIN_ACC..=MAX_ACC).contains(&acc) {
+        return Err(format!(
+            "Invalid acceleration value: {}, must be in range {}..={}",
+            acc, MIN_ACC, MAX_ACC
+        ));
     }
 
     set_pointer_resolution(sen_to_res(sen))?;

@@ -9,10 +9,20 @@ mod helper;
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
-    #[arg(short, long, default_value_t = 200, help = "Mouse sensitivity")]
+    #[arg(
+        short,
+        long,
+        default_value_t = 1800,
+        help = "Mouse sensitivity, between 10 and 1990, default 1800"
+    )]
     sen: u32,
 
-    #[arg(short, long, default_value_t = 57344, help = "Mouse acceleration")]
+    #[arg(
+        short,
+        long,
+        default_value_t = 57344,
+        help = "Mouse acceleration, default 57344"
+    )]
     acc: u32,
 
     #[arg(short, long, help = "Run as daemon")]
@@ -54,6 +64,7 @@ fn main() {
         });
 
         println!("Running as daemon, press 'q' then 'Enter' to quit");
+
         let stdin = io::stdin();
         for line in stdin.lock().lines().flatten() {
             if line == "q" {
