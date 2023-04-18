@@ -48,9 +48,7 @@ fn main() {
 
     println!("Settings applied: sen = {}, acc = {}", sen, acc);
 
-    let daemon = args.daemon;
-
-    if daemon {
+    if args.daemon {
         thread::spawn(move || loop {
             let (sen, acc) = read_mouse_cfg().unwrap();
 

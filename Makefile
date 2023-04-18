@@ -8,7 +8,7 @@ all: build
 
 build:
 	cargo build --release
-	cp ./target/release/sensi-mouse-cli ./sensi-mouse
+	cp ./target/release/sensi-mouse ./sensi-mouse
 
 install:
 	$(INSTALL_PROGRAM) sensi-mouse $(DESTDIR)$(bindir)/sensi-mouse
@@ -18,10 +18,10 @@ uninstall:
 
 # add launch service
 launchd-add:
-	cp launch-agent.plist ~/Library/LaunchAgents/com.relicx-me.mousetune.plist
-	launchctl load ~/Library/LaunchAgents/com.relicx-me.mousetune.plist
+	cp launch.plist ~/Library/LaunchAgents/com.relicx-me.sensi-mouse-cli.plist
+	launchctl load ~/Library/LaunchAgents/com.relicx-me.sensi-mouse-cli.plist
 
 # remove launch service
 launchd-remove:
-	launchctl unload ~/Library/LaunchAgents/com.relicx-me.mousetune.plist
-	$(RM) ~/Library/LaunchAgents/com.relicx-me.mousetune.plist
+	launchctl unload ~/Library/LaunchAgents/com.relicx-me.sensi-mouse-cli.plist
+	$(RM) ~/Library/LaunchAgents/com.relicx-me.sensi-mouse-cli.plist

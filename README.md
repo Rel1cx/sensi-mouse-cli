@@ -58,8 +58,6 @@ sudo make uninstall
 
 ### Run at startup
 
-MouseTune can be configured to run at startup using launchd. The following commands can be used to add or remove MouseTune from launchd:
-
 #### Add to launchd
 
 ```bash
