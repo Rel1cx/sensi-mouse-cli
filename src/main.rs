@@ -61,13 +61,9 @@ fn main() {
             thread::sleep(Duration::from_secs(15));
         });
 
-        println!("Running as daemon, press 'q' then 'Enter' to quit");
+        println!("Running as daemon, press Ctrl+C to exit");
 
         let stdin = io::stdin();
-        for line in stdin.lock().lines().flatten() {
-            if line == "q" {
-                break;
-            }
-        }
+        for _ in stdin.lock().lines() {}
     }
 }
