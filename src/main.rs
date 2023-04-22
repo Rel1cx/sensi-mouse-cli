@@ -13,7 +13,7 @@ struct Args {
         short,
         long,
         default_value_t = 1800,
-        help = "Mouse sensitivity, between 10 and 1990, default 1800"
+        help = "Mouse Sensitivity, between 10 and 1990, default 1800"
     )]
     sen: u32,
 
@@ -21,7 +21,7 @@ struct Args {
         short,
         long,
         default_value_t = 57344,
-        help = "Mouse acceleration, default 57344"
+        help = "Mouse Acceleration, default 57344"
     )]
     acc: u32,
 
@@ -35,7 +35,7 @@ fn main() {
     if argc == 1 {
         let (sen, acc) = read_mouse_cfg().unwrap();
 
-        println!("Current settings: sen = {}, acc = {}", sen, acc);
+        println!("Current Settings: sen = {}, acc = {}", sen, acc);
 
         return;
     }
