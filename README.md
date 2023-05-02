@@ -10,8 +10,8 @@ sensi-mouse [-s <sensitivity>] [-a <acceleration>]
 
 ## Options
 
-- `-s <sensitivity>`: Set mouse sensitivity, range is 10-1990, default is 1800
-- `-a <acceleration>`: Set mouse acceleration, range is 0-10000000, default is 57344, 0 means disable acceleration
+- `-s <sensitivity>`: Set mouse sensitivity, range is 10-1990
+- `-a <acceleration>`: Set mouse acceleration, range is 0-10000000, default is 45056, 0 means disable acceleration
 - `-d`: Run as daemon, will check and re-apply mouse settings if system settings are changed or affected by other programs
 - `-h`: Show help
 

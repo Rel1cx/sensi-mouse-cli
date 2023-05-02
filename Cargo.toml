@@ -3,7 +3,7 @@ name = "sensi-mouse"
 version = "0.1.0"
 description = "CLI utility for macOS system-wide mouse sensitivity and acceleration"
 edition = "2021"
-rust-version = "1.68.0"
+rust-version = "1.69.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

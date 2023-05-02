@@ -6,6 +6,6 @@ Thin wrapper for macOS system-wide mouse settings manipulation.
 
 - [x] Add CI
 - [x] Add tests
-- [ ] Add documentation
+- [x] Add documentation
 - [ ] Add examples
 - [ ] Add more settings

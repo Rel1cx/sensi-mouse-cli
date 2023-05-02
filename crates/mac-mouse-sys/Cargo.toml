@@ -1,12 +1,12 @@
 [package]
 name = "mac-mouse-sys"
-version = "0.0.6"
+version = "0.0.8"
 authors = ["Eva1ent <let@ik.me>"]
-description = "Thin wrapper for macOS system-wide mouse settings manipulation."
+description = "Tiny wrapper for mouse-related functions in macOS `IOKit/hidsystem`."
 edition = "2021"
 
-homepage = "https://github.com/Nicify/mac-mouse-sys"
-repository = "https://github.com/Nicify/mac-mouse-sys"
+homepage = "https://github.com/Rel1cx/sensi-mouse-cli/tree/master/crates/mac-mouse-sys"
+repository = "https://github.com/Rel1cx/sensi-mouse-cli/tree/master/crates/mac-mouse-sys"
 # documentation = ""
 
 license = "MIT"

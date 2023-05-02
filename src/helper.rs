@@ -14,7 +14,8 @@ pub fn sen_to_res(sen: i32) -> i32 {
 }
 
 pub fn read_mouse_cfg() -> Result<(i32, i32), String> {
-    let sen = res_to_sen(get_pointer_resolution()?);
+    let res = get_pointer_resolution()?;
+    let sen = if res == -1 { -1 } else { res_to_sen(res) };
     let acc = get_mouse_acceleration()?;
 
     Ok((sen, acc))

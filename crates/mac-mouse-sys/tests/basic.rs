@@ -2,16 +2,13 @@ use mac_mouse_sys::*;
 
 #[test]
 fn resolution() {
-    let prev_res = get_pointer_resolution().unwrap();
-    let res = 7864320;
+    let res = 1900 * 65536;
 
     set_pointer_resolution(res).unwrap();
 
     let ret = get_pointer_resolution().unwrap();
 
     assert_eq!(ret, res);
-
-    set_pointer_resolution(prev_res).unwrap();
 }
 
 #[test]
