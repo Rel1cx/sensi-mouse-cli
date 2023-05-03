@@ -29,6 +29,9 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![cfg(target_os = "macos")]
 
+#[cfg(not(target_os = "macos"))]
+compile_error!("This crate only works on macOS");
+
 mod sys {
     use libc::c_int;
     #[link(name = "mouse")]
