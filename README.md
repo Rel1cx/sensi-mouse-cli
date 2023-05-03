@@ -70,6 +70,10 @@ make launchd-add
 make launchd-remove
 ```
 
+## Library
+
+[mac-mouse-sys](./crates/mac-mouse-sys/README.md) - Tiny wrapper for mouse-related functions in macOS IOKit/hidsystem
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
