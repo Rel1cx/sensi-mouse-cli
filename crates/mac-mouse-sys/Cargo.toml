@@ -1,6 +1,6 @@
 [package]
 name = "mac-mouse-sys"
-version = "0.0.8"
+version = "0.0.9"
 authors = ["Eva1ent <let@ik.me>"]
 description = "Tiny wrapper for mouse-related functions in macOS `IOKit/hidsystem`."
 edition = "2021"
@@ -16,6 +16,11 @@ readme = "README.md"
 include = ["Cargo.toml", "build.rs", "c/*", "src/*.rs", "tests/*.rs"]
 
 build = "build.rs"
+
+[package.metadata.docs.rs]
+all-features = true
+default-target = "x86_64-apple-darwin"
+rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
 libc = "0.2"

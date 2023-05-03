@@ -5,7 +5,7 @@
 //! `pointer resolution` - the resolution of pointer movement space, the higher the value, the slower the pointer movement speed
 //!
 //! Special values:
-//! 
+//!
 //! - `-1`: null
 //!
 //! - `5 * 65536`: Min
@@ -20,9 +20,14 @@
 //!
 //! - `45056`: macOS default
 
-#![warn(trivial_casts, trivial_numeric_casts, missing_docs)]
-#![cfg(target_os = "macos")]
+#![deny(missing_docs)]
+#![deny(missing_debug_implementations)]
+#![warn(trivial_casts, trivial_numeric_casts)]
 #![allow(improper_ctypes)]
+#![cfg_attr(debug_assertions, allow(dead_code, unused_imports))]
+#![cfg_attr(docsrs, deny(rustdoc::broken_intra_doc_links))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
+#![cfg(target_os = "macos")]
 
 mod sys {
     use libc::c_int;
