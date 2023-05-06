@@ -12,7 +12,7 @@ name = "sensi-mouse"
 path = "src/main.rs"
 
 [dependencies]
-clap = { version = "4.2.2", features = ["derive"] }
+clap = { version = "4.2", features = ["derive"] }
 mac-mouse-sys = { path = "./crates/mac-mouse-sys" }
 
 [profile.release]
